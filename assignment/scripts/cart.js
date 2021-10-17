@@ -4,9 +4,18 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const maxItems = 5;
 
+//addItem code before stretch goal:
+// function addItem(item){
+//   basket.push(item)
+//   return true;
+// }
 function addItem(item){
-  basket.push(item)
-  return true;
+  if ( isFull() === false ) {
+    basket.push(item)
+    return true;
+  } else {
+    return false;
+  }
 }
 //testing code
 console.log('basket: ', basket);
@@ -21,6 +30,7 @@ function listItems(){
 //testing code
 console.log('In your shopping cart:');
 console.log(listItems());
+//not sure why I'm getting an undefined here :(
 
 function empty(){
   return basket = [];
@@ -47,3 +57,8 @@ console.log('adding bread to basket (expect true): ', addItem('bread'));
 
 console.log('number of items in basket: ', basket.length);
 console.log ('Checking if basket if full (expect true): ', isFull());
+
+console.log('testing addItem when isFull === true')
+console.log('adding apple to basket (expect false): ', addItem('false'));
+console.log('listing items (should not include apple): ')
+console.log(listItems());
